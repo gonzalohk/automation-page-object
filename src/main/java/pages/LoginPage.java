@@ -6,22 +6,14 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
 
-    //TODO Locators
     private By userInput = By.id("username");
     private By passWordInput = By.id("password");
-    private By loginButton = By.id("loginButton");
-    private By errorMessage = By.name("errorMessage");
+    private By loginButton = By.xpath("//*[@id=\"login\"]/button");
+    private By errorMessage = By.id("flash");
 
-
-    public LoginPage(WebDriver webDriver){
-        super(webDriver);
-    }
-
-    //TODO Actions
-    /*
-    public void typeUserName(String user){
+    public void typeUserName(String userName){
         WebElement element = webDriver.findElement(userInput);
-        element.sendKeys(user);
+        element.sendKeys(userName);
     }
 
     public void typePassWord(String passWord){
@@ -31,21 +23,19 @@ public class LoginPage extends BasePage {
 
     public void clickOnLoginButton(){
         WebElement element = webDriver.findElement(loginButton);
-        if (element!=null) {
-            element.submit();
-        }
+        element.click();
     }
 
-    public void loginAs(String user, String passWord){
-        typeUserName(user);
+    public SecurePage loginAs(String userName, String passWord){
+        typeUserName(userName);
         typePassWord(passWord);
         clickOnLoginButton();
+        return new SecurePage(webDriver);
     }
-
 
     public boolean isErrorMessageVisible(){
         try {
-            WebDriverWait wait = new WebDriverWait(webDriver, 3);
+            WebDriverWait wait = new WebDriverWait(webDriver,3);
             wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(errorMessage)));
             return true;
         }catch (Exception e){
@@ -55,5 +45,6 @@ public class LoginPage extends BasePage {
 
     public boolean isLoginPageDisplayed(){
         return webDriver.findElement(loginButton).isDisplayed();
-    }*/
+    }
+
 }
