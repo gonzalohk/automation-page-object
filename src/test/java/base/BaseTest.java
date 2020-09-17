@@ -8,9 +8,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import utils.OSValidator;
+import pages.BasePage;
+
 
 public class BaseTest {
     protected WebDriver webDriver;
+    protected BasePage basePage;
     protected final String URL = "https://the-internet.herokuapp.com/";
     private final String DEFAULT_BROWSER = "chrome";
 
