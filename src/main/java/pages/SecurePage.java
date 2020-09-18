@@ -13,6 +13,7 @@ public class SecurePage extends BasePage {
 
 
     public SecurePage(WebDriver webDriver){
+        super(webDriver);
         this.webDriver = webDriver;
     }
 
