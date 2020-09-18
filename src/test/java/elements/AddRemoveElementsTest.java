@@ -6,21 +6,19 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AddRemoveElementsPage;
-import pages.BasePage;
 
 import java.util.List;
 
 public class AddRemoveElementsTest extends BaseTest {
     @BeforeMethod
     public void init(){
-
-        webDriver.get("https://the-internet.herokuapp.com/");
-        basePage = new BasePage(webDriver);
+        webDriver.get(URL + "add_remove_elements/");
     }
+
 
     @Test
     public void testAddElement(){
-        AddRemoveElementsPage addRemoveElementsPage = basePage.clickOnAddRemoveLink();
+        AddRemoveElementsPage addRemoveElementsPage = new AddRemoveElementsPage(webDriver);
         for (int i=0; i<10; i++) {
             addRemoveElementsPage.addElementButton();
         }
@@ -29,17 +27,17 @@ public class AddRemoveElementsTest extends BaseTest {
 
     @Test
     public void testRemoveElement(){
-        AddRemoveElementsPage addRemoveElementsPage = basePage.clickOnAddRemoveLink();
+        AddRemoveElementsPage addRemoveElementsPage = new AddRemoveElementsPage(webDriver);
         for (int i=0; i<10; i++) {
             addRemoveElementsPage.addElementButton();
         }
-        List<WebElement> deletebuttons = addRemoveElementsPage.deleteButtons();
+        List<WebElement> deleteButtons = addRemoveElementsPage.deleteButtons();
         for (int i=0; i<10; i++) {
-            WebElement deleteButton = deletebuttons.get(i);
+            WebElement deleteButton = deleteButtons.get(i);
             deleteButton.click();
         }
-        deletebuttons = addRemoveElementsPage.deleteButtons();
-        Assert.assertEquals(deletebuttons.size(), 0);
+        deleteButtons = addRemoveElementsPage.deleteButtons();
+        Assert.assertEquals(deleteButtons.size(), 0);
 
     }
 
