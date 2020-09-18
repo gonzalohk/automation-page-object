@@ -30,6 +30,4 @@ public class SecurePage extends BasePage {
     public String getUserNameText(){
         return webDriver.findElement(logoutButton).getText();
     }
-
-
 }

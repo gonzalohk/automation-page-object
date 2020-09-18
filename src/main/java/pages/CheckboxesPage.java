@@ -18,14 +18,24 @@ public class CheckboxesPage extends BasePage {
     }
 
     public void onclickCheckbox1(){
-        WebElement checked = webDriver.findElement(checkboxOne);
-        System.out.println(checked.isSelected());
-        checked.click();
+        WebElement element = webDriver.findElement(checkboxOne);
+        System.out.println(element.isSelected());
+        element.click();
     }
 
     public void onclickCheckbox2(){
-        WebElement checked = webDriver.findElement(checkboxTwo);
-        System.out.println(checked.isSelected());
-        checked.click();
+        WebElement element = webDriver.findElement(checkboxTwo);
+        System.out.println(element.isSelected());
+        element.click();
+    }
+
+    public boolean isSelectedCheck1(){
+        WebElement element = webDriver.findElement(checkboxOne);
+        return element.isSelected();
+    }
+
+    public boolean isSelectedCheck2(){
+        WebElement element = webDriver.findElement(checkboxOne);
+        return element.isSelected();
     }
 }

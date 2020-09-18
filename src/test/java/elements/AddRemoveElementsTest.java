@@ -15,7 +15,6 @@ public class AddRemoveElementsTest extends BaseTest {
         webDriver.get(URL + "add_remove_elements/");
     }
 
-
     @Test
     public void testAddElement(){
         AddRemoveElementsPage addRemoveElementsPage = new AddRemoveElementsPage(webDriver);
@@ -40,6 +39,4 @@ public class AddRemoveElementsTest extends BaseTest {
         Assert.assertEquals(deleteButtons.size(), 0);
 
     }
-
-
 }
