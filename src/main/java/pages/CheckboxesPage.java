@@ -1,5 +1,7 @@
 package pages;
 
+import com.aventstack.extentreports.Status;
+import helper.ScreenShotHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,11 +33,13 @@ public class CheckboxesPage extends BasePage {
 
     public boolean isSelectedCheck1(){
         WebElement element = webDriver.findElement(checkboxOne);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(webDriver, Status.INFO, "Select Check");
         return element.isSelected();
     }
 
     public boolean isSelectedCheck2(){
         WebElement element = webDriver.findElement(checkboxOne);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(webDriver, Status.INFO, "Select Check");
         return element.isSelected();
     }
 }

@@ -1,5 +1,7 @@
 package pages;
 
+import com.aventstack.extentreports.Status;
+import helper.ScreenShotHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,11 +21,13 @@ public class SecurePage extends BasePage {
 
     public boolean isPageSecureDisplayed(){
         WebElement element = webDriver.findElement(pageSecure);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(webDriver, Status.INFO, "Display");
         return element.isDisplayed();
     }
 
     public LoginPage clickOnLogOutButton(){
         webDriver.findElement(logoutButton).click();
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(webDriver, Status.INFO, "Display");
         return new LoginPage(webDriver);
     }
 
